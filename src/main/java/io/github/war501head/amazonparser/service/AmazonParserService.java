@@ -20,8 +20,8 @@ import java.net.URISyntaxException;
 /**
  * The Business logic behind parsing amazon search results and putting out a score
  *
- * @see AmazonParserRestController for specific endpoints and their arguments
  * @author Sean K.
+ * @see AmazonParserRestController for specific endpoints and their arguments
  */
 @Service
 public class AmazonParserService {
@@ -39,8 +39,9 @@ public class AmazonParserService {
     /**
      * Takes the keyword that has been passed into the microservice, breaks it down letter-by-letter, and parses the autocompletion API inside of Amazon
      * <p>
-     *  {@link ParserResultsTO#getScore()} is calculated by how early the keyword shows up. The more letters needed to find the key word, the less hot it is.
+     * {@link ParserResultsTO#getScore()} is calculated by how early the keyword shows up. The more letters needed to find the key word, the less hot it is.
      * </p>
+     *
      * @param keyword The keyword being parsed
      * @return The json transfer object
      */
@@ -77,7 +78,7 @@ public class AmazonParserService {
                 builder.append(charArray[i]);
                 // Update the prefix with the new value, substituting spaces for the + sign. (Maybe not needed?)
                 uriBuilder.replaceQueryParam("q", builder.toString().replaceAll(" ", "+"));
-                logger.debug("Contacting Amazon Completion Service: "+uriBuilder.toUriString());
+                logger.debug("Contacting Amazon Completion Service: " + uriBuilder.toUriString());
                 HttpEntity<String> serializedResponse = restTemplate.exchange(uriBuilder.toUriString(),
                         HttpMethod.GET,
                         entity,

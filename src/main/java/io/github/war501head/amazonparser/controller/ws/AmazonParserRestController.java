@@ -3,13 +3,16 @@ package io.github.war501head.amazonparser.controller.ws;
 import io.github.war501head.amazonparser.service.AmazonParserService;
 import io.github.war501head.amazonparser.transfer.ParserResultsTO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * The RestController for the AmazonParser application.
  *
- * @see AmazonParserService for business logic methods
  * @author Sean K.
+ * @see AmazonParserService for business logic methods
  */
 @RestController
 public class AmazonParserRestController {
